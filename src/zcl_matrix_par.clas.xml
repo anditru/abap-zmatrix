@@ -42,6 +42,18 @@
      <LANGU>E</LANGU>
      <DESCRIPT>Natural number</DESCRIPT>
     </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MATRIX_PAR</CLSNAME>
+     <CMPNAME>RECEIVE_VALUES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Receive values from parallel processing</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MATRIX_PAR</CLSNAME>
+     <CMPNAME>TASKS_FINISHED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Natural number</DESCRIPT>
+    </SEOCOMPOTX>
    </DESCRIPTIONS>
   </asx:values>
  </asx:abap>

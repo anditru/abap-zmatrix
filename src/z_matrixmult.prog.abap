@@ -8,7 +8,7 @@ DATA:
       lv_m              TYPE i VALUE 100,
       lv_n              TYPE i VALUE 100,
       lv_start_regular  TYPE i,
-      lv_end_regular   TYPE i,
+      lv_end_regular    TYPE i,
       lv_difference     TYPE decfloat34,
       lo_matrix_a       TYPE REF TO zcl_matrix,
       lo_matrix_b       TYPE REF TO zcl_matrix,

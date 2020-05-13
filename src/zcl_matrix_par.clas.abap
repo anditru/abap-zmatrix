@@ -8,12 +8,16 @@ public section.
   data M type INT4 .
   data N type INT4 .
   data MATRIX type ZTMATRIX_PAR .
+  data TASKS_FINISHED type INT4 .
 
   methods CONSTRUCTOR
     importing
       !IV_M type INT4
       !IV_N type INT4 .
   methods CREATE_RANDOM_MATRIX .
+  methods RECEIVE_VALUES
+    importing
+      !P_TASK type CLIKE .
 protected section.
 private section.
 ENDCLASS.
@@ -49,6 +53,7 @@ CLASS ZCL_MATRIX_PAR IMPLEMENTATION.
       lv_j = 1.
       lv_i = lv_i + 1.
     ENDWHILE.
+
   endmethod.
 
 
@@ -64,5 +69,24 @@ CLASS ZCL_MATRIX_PAR IMPLEMENTATION.
         IMPORTING
           ran_int = <fs_line>-value.
     ENDLOOP.
+  endmethod.
+
+
+  method RECEIVE_VALUES.
+
+    DATA:
+          lt_result TYPE ztmatrix_par.
+
+    RECEIVE RESULTS FROM FUNCTION 'Z_CALC_VALUES'
+      IMPORTING
+        et_result = lt_result.
+
+    IF me->tasks_finished IS INITIAL.
+      CLEAR me->matrix.
+    ENDIF.
+
+    INSERT LINES OF lt_result INTO TABLE me->matrix.
+    me->tasks_finished = me->tasks_finished + 1.
+
   endmethod.
 ENDCLASS.

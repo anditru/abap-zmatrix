@@ -19,19 +19,20 @@ DATA:
       ls_line_result TYPE zsmatrix_par,
       lv_i           TYPE i VALUE 1,
       lv_j           TYPE i,
-      lv_key         TYPE i VALUE 1.
+      lv_key         TYPE i.
 
 FIELD-SYMBOLS:
                <fs_line_result> TYPE zsmatrix_par,
                <fs_line_a>      TYPE zsmatrix_par,
                <fs_line_b>      TYPE zsmatrix_par.
 
-lt_matrix_a = it_matrix_a.
-lt_matrix_b = it_matrix_b.
+INSERT LINES OF it_matrix_a INTO TABLE lt_matrix_a.
+INSERT LINES OF it_matrix_b INTO TABLE lt_matrix_b.
 
 ASSIGN ls_line_result TO <fs_line_result>.
 lv_count = iv_start.
 lv_j = iv_start.
+lv_key = iv_start.
 
 WHILE lv_i <= iv_m.
   WHILE lv_j <= iv_n.
