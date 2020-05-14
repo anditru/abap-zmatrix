@@ -1,5 +1,5 @@
-FUNCTION Z_CALC_VALUES.
-*"----------------------------------------------------------------------
+FUNCTION ZFM_CALC_VALUES.
+*"--------------------------------------------------------------------
 *"*"Local Interface:
 *"  IMPORTING
 *"     VALUE(IT_MATRIX_A) TYPE  ZTMATRIX_PAR
@@ -10,7 +10,7 @@ FUNCTION Z_CALC_VALUES.
 *"     VALUE(IV_START) TYPE  INT4
 *"  EXPORTING
 *"     VALUE(ET_RESULT) TYPE  ZTMATRIX_PAR
-*"----------------------------------------------------------------------
+*"--------------------------------------------------------------------
 
 DATA:
       lt_matrix_a    TYPE ztmatrix,

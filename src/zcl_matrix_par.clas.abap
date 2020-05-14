@@ -28,14 +28,14 @@ CLASS ZCL_MATRIX_PAR IMPLEMENTATION.
 
 
   method CONSTRUCTOR.
+
     DATA:
       lv_i    TYPE i VALUE 1,
       lv_j    TYPE i VALUE 1,
-      lv_key  TYPE i VALUE 1,
-      ls_line TYPE zsmatrix_par.
+      ls_line TYPE zsmatrix.
 
     FIELD-SYMBOLS:
-                   <fs_line> TYPE zsmatrix_par.
+                   <fs_line> TYPE zsmatrix.
     ASSIGN ls_line TO <fs_line>.
 
     me->m = iv_m.
@@ -43,11 +43,9 @@ CLASS ZCL_MATRIX_PAR IMPLEMENTATION.
 
     WHILE lv_i <= iv_m.
       WHILE lv_j <= iv_n.
-        <fs_line>-key = lv_key.
         <fs_line>-m = lv_i.
         <fs_line>-n = lv_j.
         INSERT <fs_line> INTO TABLE me->matrix.
-        lv_key = lv_key + 1.
         lv_j = lv_j + 1.
       ENDWHILE.
       lv_j = 1.
@@ -59,7 +57,7 @@ CLASS ZCL_MATRIX_PAR IMPLEMENTATION.
 
   method CREATE_RANDOM_MATRIX.
     FIELD-SYMBOLS:
-               <fs_line> TYPE zsmatrix_par.
+               <fs_line> TYPE zsmatrix.
 
     LOOP AT me->matrix ASSIGNING <fs_line>.
       CALL FUNCTION 'QF05_RANDOM_INTEGER'
@@ -77,7 +75,7 @@ CLASS ZCL_MATRIX_PAR IMPLEMENTATION.
     DATA:
           lt_result TYPE ztmatrix_par.
 
-    RECEIVE RESULTS FROM FUNCTION 'Z_CALC_VALUES'
+    RECEIVE RESULTS FROM FUNCTION 'ZFM_CALC_VALUES'
       IMPORTING
         et_result = lt_result.
 

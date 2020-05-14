@@ -4,9 +4,12 @@
 *&
 *&---------------------------------------------------------------------*
 REPORT Z_MATRIXMULT.
+
+PARAMETERS:
+      p_m TYPE i DEFAULT 200,
+      p_n TYPE i DEFAULT 200.
+
 DATA:
-      lv_m              TYPE i VALUE 100,
-      lv_n              TYPE i VALUE 100,
       lv_start_regular  TYPE i,
       lv_end_regular    TYPE i,
       lv_difference     TYPE decfloat34,
@@ -24,16 +27,16 @@ START-OF-SELECTION.
 CREATE OBJECT:
   lo_matrix_a
     EXPORTING
-      iv_m = lv_m
-      iv_n = lv_n,
+      iv_m = p_m
+      iv_n = p_n,
   lo_matrix_b
     EXPORTING
-      iv_m = lv_m
-      iv_n = lv_n,
+      iv_m = p_m
+      iv_n = p_n,
   lo_matrix_c
     EXPORTING
-      iv_m = lv_m
-      iv_n = lv_n.
+      iv_m = p_m
+      iv_n = p_n.
 
 CALL METHOD:
              lo_matrix_a->create_random_matrix,
@@ -50,4 +53,4 @@ ENDLOOP.
 
 GET RUN TIME FIELD lv_end_regular.
 lv_difference = CONV decfloat34( ( lv_end_regular - lv_start_regular ) / 1000000 ).
-WRITE: lv_difference, ' s for regular calculation'.
+WRITE: lv_difference, ' s for regular calculation.'.
