@@ -3,10 +3,10 @@
 **Z_MATRIXMULT** Computes the product of two matrices filled with random numbers between 1 and 10.
 **Z_MATRIXMULT_PAR** Computes the product of two matrices filled with random numbers between 1 and 10 *using parallel processing*.
 
-##  Function Group
+###  Function Group
 **ZFG_MATRIX** Contains function module for parallel processing.
 
-## Fucntion Module
+### Function Module
 **ZFM_CALC_VALUES** Computes the product of two matrices with parallel processing, compatible with RFCs.
 
 ### Classes
