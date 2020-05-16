@@ -1,4 +1,6 @@
 # abap-zmatrix
+Implementation of matrix multiplication in ABAP.
+
 ## Reports
 **Z_MATRIXMULT** Computes the product of two matrices filled with random numbers between 1 and 10.  
 **Z_MATRIXMULT_PAR** Computes the product of two matrices filled with random numbers between 1 and 10 *using parallel processing*.  
